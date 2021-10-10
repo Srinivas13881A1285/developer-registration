@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+<script type="text/javascript">
+      function validate() {
+        let firstName = document.registrationForm.fname.value;
+        let lastName = document.registrationForm.lname.value;
+        let companyName = document.registrationForm.company.value;
+        let phoneNumber = document.registrationForm.phonenumber.value;
+       	let city = document.registrationForm.city.value;
+        let country = document.registrationForm.country.value;
+        
+        if (firstName == "") {
+          alert("Please enter a first name");
+          return false;
+        } else if (lastName == "") {
+          alert("Please enter a last name");
+          return false;
+        }else if(companyName == ""){
+        	   alert("Please enter a company name");
+               return false;
+        }
+        else if(city == ""){
+           alert("Please enter a city name");
+           return false;
+        }else if(country == ""){
+           alert("Please enter a country name");
+           return false;
+        }
+        else {
+        	 if(phoneNumber == ""){
+                 alert("Please enter a phone number");
+                 return false;
+        	 }
+        	 
+          if (phoneNumber.length > 11) {
+              alert("Please enter a phone number less than or equal to 11 characters");
+              return false;
+          }
+
+          for (let i = 0; i < phoneNumber.length; i++) {
+            const phoneNumberElement = phoneNumber[i];
+            if (phoneNumberElement < "0" || phoneNumberElement > "9"){
+              alert("Please enter a phone number with numerical characters")
+              return false;
+            }
+          }
+        }
+
+            return true;
+      }
+    </script>
+</head>
+<body>
+	<h1>ABC Jobs Pte Ltd</h1>
+	<h2>Community portal for Software Developers</h2>
+
+	<form name="registrationForm" onsubmit="return validate()"
+		action="process.jsp">
+		<label>First Name</label><br /> <input type="text" name="fname" /><br />
+
+		<label>Last Name</label><br /> <input type="text" name="lname" /><br />
+
+
+		<label>Company Name</label><br /> <input type="text" name="company" /><br />
+
+
+		<label>City</label><br /> <input type="text" name="city" /><br /> <label>Country</label><br />
+		<input type="text" name="country" /><br /> <label>Phone
+			Number</label><br /> <input type="text" name="phonenumber" /><br />
+
+		<button type="submit">Register</button>
+	</form>
+</body>
+</html>
